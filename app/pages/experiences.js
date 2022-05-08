@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from 'react';
 
-import { View, Text, Button, ScrollView } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
+
+import { ExperiencesGet } from './request';
 
 const Experiences = () => {
     const [getExperiences, setGetExperiences] = useState([]);
     
-    useEffect(() => {}, []);
-    
+    useEffect(() => {
+        ExperiencesGet().then(res => {
+            setGetExperiences(res.item)
+        })
+    }, []);
+     
     return(
-        <View>
-            <Text>
+        <View style={styles.container}>
+            <Text style={styles.text}>
                 Experiencias
             </Text>
             <ScrollView>
@@ -24,5 +30,15 @@ const Experiences = () => {
         </View>
     );
 }
+
+const styles = StyleSheet({
+    container: {
+        flex: 1
+    },
+    text: {
+        fontSize: 25,
+        fontWeight: 'bold'
+    }
+})
 
 export default Experiences;

@@ -31,6 +31,7 @@ const useTheme = useTheme(light, dark);
 export default function App() {
 
   const colorScheme = Appearance.getColorScheme();
+  console.log(colorScheme);
 
   return (
     <ScrollView style={styles.container}>

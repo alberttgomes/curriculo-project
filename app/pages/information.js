@@ -1,15 +1,22 @@
 import React, {useState, useEffect} from "react";
 
-import { Text, View, ScrollView } from "react-native";
+import { Text, View, ScrollView, StyleSheet } from "react-native";
+
+import { InformationGet } from "./request";
 
 const Information = () => {
+    
     const [getInformation, setGetInformation] = useState([]);
     
-    useEffect(() => {}, []);
+    useEffect(() => {
+        InformationGet().then(res => {
+            setGetInformation(res.items);
+        })
+    }, []);
 
     return (
-        <View>
-            <Text>
+        <View style={styles.container}>
+            <Text style={styles.text}>
                 Informações
             </Text>
             <ScrollView>
@@ -25,5 +32,15 @@ const Information = () => {
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex:1,
+    },
+    text: {
+        fontSize: 25,
+        fontWeight: 'bold'
+    }
+})
 
 export default Information;
