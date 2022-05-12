@@ -23,6 +23,6 @@ export function AboutGet() {
 
 export function SkillsGet() {
     axios.get('/localhost:8080/skills', {method: 'GET'})
-    .then(res => res.json())
-    .catch(e => {alert(`Error: ${e}`)})
+        .then(res => res.json())
+        .catch(e => {alert(`Error: ${e}`)})
 }
