@@ -5,6 +5,7 @@ import { View, Text, ScrollView } from 'react-native';
 import { ExperiencesGet } from './request';
 
 const Experiences = () => {
+    
     const [getExperiences, setGetExperiences] = useState([]);
     
     useEffect(() => {
@@ -21,7 +22,7 @@ const Experiences = () => {
             <ScrollView>
                 {getExperiences.map(getExperiences => (
                     <View key={getExperiences.id}>
-                        <Text>Empresa: {getExperiences.company}</Text>
+                        <Text>Empresa: {getExperiences.jobs}</Text>
                         <Text>Atividades: {getExperiences.tracks}</Text>
                         <Text>Período: {getExperiences.time}</Text>
                     </View>
