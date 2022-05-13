@@ -14,8 +14,10 @@ public class Experiences {
         private long experiencesId;
         @Column(name = "jobs")
         private String[] jobs;
-        @Column(name = "courses")
-        private String[] courses;
+        @Column(name = "time")
+        private String[] time;
+        @Column(name = "tracks")
+        private String[] tracks;
         @Column(name = "others")
         private String[] others;
 
@@ -23,10 +25,11 @@ public class Experiences {
             super();
         }
 
-        public Experiences(long experiencesId, String[] jobs, String[] courses, String[] others) {
+        public Experiences(long experiencesId, String[] jobs, String[] time, String[] tracks, String[] others) {
             this.experiencesId = experiencesId;
             this.jobs = jobs;
-            this.courses = courses;
+            this.time = time;
+            this.tracks = tracks;
             this.others = others;
         }
 
@@ -46,12 +49,20 @@ public class Experiences {
             this.jobs = jobs;
         }
 
-        public String[] getCourses() {
-            return courses;
+        public String[] getTime() {
+            return time;
         }
 
-        public void setCourses(String[] courses) {
-            this.courses = courses;
+        public void setTime(String[] time) {
+            this.time = time;
+        }
+
+        public String[] getTracks() {
+            return tracks;
+        }
+
+        public void setTracks(String[] tracks) {
+            this.tracks = tracks;
         }
 
         public String[] getOthers() {
@@ -61,5 +72,4 @@ public class Experiences {
         public void setOthers(String[] others) {
             this.others = others;
         }
-
 }
