@@ -12,6 +12,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 public class ControllerInformation {
     
@@ -39,6 +41,37 @@ public class ControllerInformation {
         @RequestMapping(value = "/information", method = RequestMethod.POST, produces = "application/json")
         public Information Post(@Validated @RequestBody Information information){
                 return daoInformation.save(information);
+        }
+
+        @RequestMapping(value = "/information/informationId", method = RequestMethod.PUT)
+        public ResponseEntity<Information>Put(@PathVariable(value = "informationId") long informationId,
+                @Valid @RequestBody Information newInformation)
+        {
+                Optional<Information> informationOld = daoInformation.findById(informationId);
+                if(informationOld.isPresent()){
+
+                        Information informationNumberPhone = informationOld.get();
+                        informationNumberPhone.setNumberPhone(newInformation.getNumberPhone());
+                        daoInformation.save((informationNumberPhone));
+
+                        Information informationNumberHome = informationOld.get();
+                        informationNumberHome.setNumberHome(newInformation.getNumberHome());
+                        daoInformation.save(informationNumberHome);
+
+                        Information informationProfession = informationOld.get();
+                        informationProfession.setProfession(newInformation.getProfession());
+                        daoInformation.save(informationProfession);
+
+                        Information informationEmail = informationOld.get();
+                        informationEmail.setEmail(newInformation.getEmail());
+                        daoInformation.save(informationEmail);
+
+                        return new ResponseEntity<>(HttpStatus.OK);
+
+                } else {
+                        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+                }
+
         }
 
 }
