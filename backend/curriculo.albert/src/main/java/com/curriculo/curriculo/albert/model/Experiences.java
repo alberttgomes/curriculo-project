@@ -13,19 +13,19 @@ public class Experiences {
         @GeneratedValue(strategy = GenerationType.AUTO)
         private long experiencesId;
         @Column(name = "jobs")
-        private String[] jobs;
+        private String jobs;
         @Column(name = "time")
-        private String[] time;
+        private String time;
         @Column(name = "tracks")
-        private String[] tracks;
+        private String tracks;
         @Column(name = "others")
-        private String[] others;
+        private String others;
 
         public Experiences(){
             super();
         }
 
-        public Experiences(long experiencesId, String[] jobs, String[] time, String[] tracks, String[] others) {
+        public Experiences(long experiencesId, String jobs, String time, String tracks, String others) {
             this.experiencesId = experiencesId;
             this.jobs = jobs;
             this.time = time;
@@ -41,35 +41,35 @@ public class Experiences {
             this.experiencesId = experiencesId;
         }
 
-        public String[] getJobs() {
+        public String getJobs() {
             return jobs;
         }
 
-        public void setJobs(String[] jobs) {
+        public void setJobs(String jobs) {
             this.jobs = jobs;
         }
 
-        public String[] getTime() {
+        public String getTime() {
             return time;
         }
 
-        public void setTime(String[] time) {
+        public void setTime(String time) {
             this.time = time;
         }
 
-        public String[] getTracks() {
+        public String getTracks() {
             return tracks;
         }
 
-        public void setTracks(String[] tracks) {
+        public void setTracks(String tracks) {
             this.tracks = tracks;
         }
 
-        public String[] getOthers() {
+        public String getOthers() {
             return others;
         }
 
-        public void setOthers(String[] others) {
+        public void setOthers(String others) {
             this.others = others;
         }
 }

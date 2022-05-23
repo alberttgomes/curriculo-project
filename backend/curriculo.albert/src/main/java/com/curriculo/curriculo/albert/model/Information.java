@@ -14,20 +14,20 @@ public class Information {
         private long informationId;
         @Column(name = "fullName", length = 40, nullable = false)
         private String fullName;
-        @Column(name = "numberPhone", length = 11, nullable = false)
-        private int numberPhone;
-        @Column(name = "numberHome", length = 10)
-        private int numberHome;
-        @Column(name = "email", length = 25, nullable = false)
+        @Column(name = "numberPhone", length = 20, nullable = false)
+        private String numberPhone;
+        @Column(name = "numberHome", length = 20)
+        private String numberHome;
+        @Column(name = "email", length = 40, nullable = false)
         private String email;
-        @Column(name = "profession", length = 15, nullable = false)
+        @Column(name = "profession", length = 25, nullable = false)
         private String profession;
 
         public Information(){
             super();
         }
 
-        public Information(long informationId, String fullName, int numberPhone, int numberHome, String email, String profession) {
+        public Information(long informationId, String fullName, String numberPhone, String numberHome, String email, String profession) {
             this.informationId = informationId;
             this.fullName = fullName;
             this.numberPhone = numberPhone;
@@ -52,19 +52,19 @@ public class Information {
             this.fullName = fullName;
         }
 
-        public int getNumberPhone() {
+        public String getNumberPhone() {
             return numberPhone;
         }
 
-        public void setNumberPhone(int numberPhone) {
+        public void setNumberPhone(String numberPhone) {
             this.numberPhone = numberPhone;
         }
 
-        public int getNumberHome() {
+        public String getNumberHome() {
             return numberHome;
         }
 
-        public void setNumberHome(int numberHome) {
+        public void setNumberHome(String numberHome) {
             this.numberHome = numberHome;
         }
 
