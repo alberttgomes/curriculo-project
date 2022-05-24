@@ -4,7 +4,7 @@ import {View, Text, Button, StyleSheet} from 'react-native';
 
 import { SkillsGet } from "./request";
 
-const Skills = () => {
+const SkillsScreen = () => {
     
     const [getSkills, setGetSkills] = useState([]);
 
@@ -55,4 +55,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default Skills;
+export default SkillsScreen;

@@ -4,7 +4,7 @@ import { View, Text, ScrollView } from 'react-native';
 
 import { ExperiencesGet } from './request';
 
-const Experiences = () => {
+const ExperiencesScreen = () => {
     
     const [getExperiences, setGetExperiences] = useState([]);
     
@@ -42,4 +42,4 @@ const styles = StyleSheet({
     }
 })
 
-export default Experiences;
+export default ExperiencesScreen;

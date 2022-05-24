@@ -1,15 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import { Appearance } from 'react-native';
 
-import {useTheme} from 'react';
+import { DefaultTheme } from 'react-native-paper';
 
-import Sidebar from './components/sidebar';
+import { NavigationContainer } from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+
+import ExperiencesScreen from './pages/experiences';
+import AboutScreem from './pages/about';
+import HomeScreen from './pages/home';
+import Information from './pages/information';
+import SkillsScreen from './pages/skills';
 
 
 const light = {
+  ...DefaultTheme,
+  roundness:2,
   colors:{
+    ...DefaultTheme.colors,
     background: '#FFF',
     primary: '#131313',
     accent: '#9B0054',
@@ -18,6 +27,9 @@ const light = {
 }
 
 const dark = {
+  ...DefaultTheme,
+  roundness:2,
+  ...DefaultTheme.colors,
   colors:{
     background: '#131313',
     primary: '#FFF',
@@ -26,7 +38,7 @@ const dark = {
   }
 }
 
-const useTheme = useTheme(light, dark);
+const Drawer = createDrawerNavigator();
 
 export default function App() {
 
@@ -34,12 +46,23 @@ export default function App() {
   console.log(colorScheme);
 
   return (
-    <ScrollView style={styles.container}>
-      <View useTheme={colorScheme === 'dark' ? dark : light}>
-        <Sidebar />
-        <StatusBar style="auto" />
-      </View>
-    </ScrollView>
+    <View style={styles.container}>
+
+        <View theme={colorScheme === 'dark' ? dark : light}>
+          <NavigationContainer>
+            <Drawer.Navigator initialRouteName='Home'>
+                <Drawer.Screen name='Home' component={HomeScreen} />
+                <Drawer.Screen name='About' component={AboutScreem} />
+                <Drawer.Screen name='Academic' component={AcademicScreen} />
+                <Drawer.Screen name='Experiences' component={ExperiencesScreen} />
+                <Drawer.Screen name='Information' component={Information} />
+                <Drawer.Screen name='Skills' component={SkillsScreen} />
+            </Drawer.Navigator>
+          </NavigationContainer>   
+        </View>
+
+    </View>
+    
   );
 }
 

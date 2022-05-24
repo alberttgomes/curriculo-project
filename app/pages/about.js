@@ -2,7 +2,7 @@ import React from 'react';
 import {View, ScrollView, Text} from 'react-native';
 
 
-const About = () => {
+const AboutScreen = () => {
     return(
         <View>
             <View>
@@ -15,4 +15,4 @@ const About = () => {
     );
 }
 
-export default About;
+export default AboutScreen;
