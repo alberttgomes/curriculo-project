@@ -3,19 +3,21 @@ import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 import { Avatar } from "react-native-paper";
 
-//const picture = require("");
+const picture = require("../assets/me.jpeg");
 
-const data = {
+const data = [
+   {
     nome:"Albert Gomes Cabral",
     avatar:picture
-}
+   }
+]
 
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = () => {
 
     return(
         <View style={styles.container}>
             <Avatar.Image 
-                source={require(data.avatar)}
+                source={data.avatar}
                 resizeMode={"cover"}
                 style={styles.avatar}
             />
