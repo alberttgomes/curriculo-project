@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { View, Text, ScrollView } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, SafeAreaView } from 'react-native';
 
 import { ExperiencesGet } from './request';
 
@@ -15,7 +15,7 @@ const ExperiencesScreen = () => {
     }, []);
      
     return(
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <Text style={styles.text}>
                 Experiencias
             </Text>
@@ -28,11 +28,11 @@ const ExperiencesScreen = () => {
                     </View>
                 ))}
             </ScrollView>
-        </View>
+        </SafeAreaView>
     );
 }
 
-const styles = StyleSheet({
+const styles = StyleSheet.create({
     container: {
         flex: 1
     },

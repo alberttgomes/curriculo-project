@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 
-import { Text, View, ScrollView, StyleSheet } from "react-native";
+import { Text, View, ScrollView, StyleSheet, SafeAreaView } from "react-native";
 
 import { InformationGet } from "./request";
 
@@ -15,7 +15,7 @@ const Information = () => {
     }, []);
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <Text style={styles.text}>
                 Informações
             </Text>
@@ -29,7 +29,7 @@ const Information = () => {
                     </View>
                 ))}
             </ScrollView>
-        </View>
+        </SafeAreaView>
     );
 }
 

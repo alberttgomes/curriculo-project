@@ -1,4 +1,8 @@
-import { StyleSheet, View } from 'react-native';
+import 'react-native-gesture-handler';
+
+import React from 'react';
+
+import { StyleSheet, View, SafeAreaView } from 'react-native';
 
 import { Appearance } from 'react-native';
 
@@ -9,12 +13,13 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import ExperiencesScreen from './pages/experiences';
 import AboutScreem from './pages/about';
+import AcademicScreen from './pages/academic';
 import HomeScreen from './pages/home';
 import Information from './pages/information';
 import SkillsScreen from './pages/skills';
 
 
-const light = {
+export const light = {
   ...DefaultTheme,
   roundness:2,
   colors:{
@@ -26,11 +31,11 @@ const light = {
   }
 }
 
-const dark = {
+export const dark = {
   ...DefaultTheme,
   roundness:2,
-  ...DefaultTheme.colors,
   colors:{
+    ...DefaultTheme.colors,
     background: '#131313',
     primary: '#FFF',
     accent: '#9B0054',
@@ -46,22 +51,28 @@ export default function App() {
   console.log(colorScheme);
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
 
         <View theme={colorScheme === 'dark' ? dark : light}>
+          
           <NavigationContainer>
+           
             <Drawer.Navigator initialRouteName='Home'>
+            
                 <Drawer.Screen name='Home' component={HomeScreen} />
                 <Drawer.Screen name='About' component={AboutScreem} />
                 <Drawer.Screen name='Academic' component={AcademicScreen} />
                 <Drawer.Screen name='Experiences' component={ExperiencesScreen} />
                 <Drawer.Screen name='Information' component={Information} />
                 <Drawer.Screen name='Skills' component={SkillsScreen} />
+            
             </Drawer.Navigator>
-          </NavigationContainer>   
+
+          </NavigationContainer>
+
         </View>
 
-    </View>
+    </SafeAreaView>
     
   );
 }
@@ -74,3 +85,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+

@@ -1,17 +1,24 @@
 import React from 'react';
-import {View, ScrollView, Text} from 'react-native';
+import {View, ScrollView, Text, SafeAreaView} from 'react-native';
 
+import Theme from '../components/theme';
+
+const text = "technology lover, clean codes and an immense desire to learn.";
 
 const AboutScreen = () => {
+
     return(
-        <View>
+        <SafeAreaView theme={Theme.backgroundcolor}>
             <View>
-                <Text>Sobre mim</Text>
+                <Text>About me</Text>
             </View>
             <ScrollView>
-                <Text>Lorem ipus</Text>
+                <Text
+                  value={text}
+                  onChange={({target}) => (target.value)}
+                />
             </ScrollView>
-        </View>
+        </SafeAreaView>
     );
 }
 

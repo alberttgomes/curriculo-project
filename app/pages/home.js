@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, SafeAreaView, StyleSheet } from "react-native";
 import { Avatar } from "react-native-paper";
 
 const picture = require("../assets/me.jpeg");
@@ -15,16 +15,18 @@ const data = [
 const HomeScreen = () => {
 
     return(
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <Avatar.Image 
                 source={data.avatar}
                 resizeMode={"cover"}
                 style={styles.avatar}
             />
-            <Text>
-                {data.nome}
-            </Text>
-        </View>
+            <View>
+                <Text>
+                    {data.nome}
+                </Text>
+            </View>
+        </SafeAreaView>
     )
 
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import {View, Text, Button, StyleSheet} from 'react-native';
+import {View, Text, Button, StyleSheet, SafeAreaView} from 'react-native';
 
 import { SkillsGet } from "./request";
 
@@ -15,7 +15,7 @@ const SkillsScreen = () => {
     }, []);
     
     return(
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <Text style={styles.text}>Habilidades</Text>
             <ScrollView>
                 <View>
@@ -41,7 +41,7 @@ const SkillsScreen = () => {
                     title="Adicionar"
                 />
             </View>
-        </View>
+        </SafeAreaView>
     );
 }
 
